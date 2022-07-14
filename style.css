@@ -180,7 +180,7 @@ legend {
     top: 230px;
 }
 
-.deleteBook{
+.deleteBook {
     position: absolute;
     top: 0px;
     right: 5px;
@@ -188,14 +188,17 @@ legend {
     font-size: 20px;
     background-color: transparent;
 }
-.deleteBook:hover{
+
+.deleteBook:hover {
     font-size: 25px;
 }
-#newBook:hover{
+
+#newBook:hover {
     padding: 8px 13px 6px;
     background-color: black;
 }
 
-.yesButton:hover, .noButton:hover{
+.yesButton:hover,
+.noButton:hover {
     color: white;
 }
