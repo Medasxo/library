@@ -188,3 +188,14 @@ legend {
     font-size: 20px;
     background-color: transparent;
 }
+.deleteBook:hover{
+    font-size: 25px;
+}
+#newBook:hover{
+    padding: 8px 13px 6px;
+    background-color: black;
+}
+
+.yesButton:hover, .noButton:hover{
+    color: white;
+}
