@@ -154,6 +154,11 @@ legend{
     align-items: center;
     justify-content: center;
 }
+.bookNumber{
+    position: absolute;
+    right: 10px;
+    top: 230px;
+}
 
 
 
