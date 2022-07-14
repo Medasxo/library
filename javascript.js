@@ -1,4 +1,6 @@
 let myLibrary = [];
+let bookCount = 1;
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -36,12 +38,10 @@ function displayLibrary() {
         const deleteDiv = document.querySelector(".book");
         libraryContainer.removeChild(deleteDiv)
     }
-    console.log("a");
     const br = document.createElement("br");
     for (let i = 0; i < myLibrary.length; i++) {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
-
         bookDiv.innerHTML += myLibrary[i].title;
         bookDiv.insertAdjacentHTML('beforeend', '<span style="font-size: 15px;">(Title) </span>',);
         bookDiv.innerHTML += myLibrary[i].author;
@@ -49,20 +49,47 @@ function displayLibrary() {
         bookDiv.innerHTML += myLibrary[i].pages;
         bookDiv.insertAdjacentHTML('beforeend', '<span style="font-size: 15px;">(Pages) </span>',);
         if (myLibrary[i].read === "Yes") {
-            bookDiv.insertAdjacentHTML('beforeend', '<button type="button" class="yesButton">Read</button>');
+            const yesButton = document.createElement("button");
+            yesButton.setAttribute("id", i);
+            yesButton.setAttribute("type", "button");
+            yesButton.setAttribute("class", "yesButton");
+            yesButton.setAttribute("onclick", "changeReadStatusToNo(this.id)");
+            yesButton.innerText = "Read";
+            bookDiv.appendChild(yesButton);
+
         }
         else {
-            bookDiv.insertAdjacentHTML('beforeend', '<button type="button" class="noButton">Not Read</button>');
+            const noButton = document.createElement("button");
+            noButton.setAttribute("id", i);
+            noButton.setAttribute("type", "button");
+            noButton.setAttribute("class", "noButton");
+            noButton.setAttribute("onclick", "changeReadStatusToYes(this.id)");
+            noButton.innerText = "Not Read";
+            bookDiv.appendChild(noButton);
         }
 
         bookDiv.appendChild(br);
+        const bookNumber = document.createElement("div");
+        bookNumber.classList.add("bookNumber");
+        bookNumber.textContent = i + 1;
+        bookDiv.appendChild(bookNumber);
         libraryContainer.appendChild(bookDiv);
+
 
     }
 }
 
 
 
+function changeReadStatusToNo(id) {
+    myLibrary[id].read = "No";
+    displayLibrary();
+}
+
+function changeReadStatusToYes(id) {
+    myLibrary[id].read = "Yes";
+    displayLibrary();
+}
 
 
 const btn = document.getElementById('newBook');
