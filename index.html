@@ -23,7 +23,7 @@
         Library
     </h1>
     <div class="container">
-        <form id="form">
+        <form id="form" method = "post">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
             <label for="author">Author:</label>
@@ -39,7 +39,7 @@
                 <input type="radio" id="no" name="read" value = "No" required>
             </div>
             <div class="containerSubmit">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" id="submit" onclick="addBookToLibrary();return false;">
             </div>
             
 
