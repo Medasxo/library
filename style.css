@@ -1,5 +1,6 @@
 :root{
-    --customFont: 'Lobster', cursive;
+    --logoFont: 'Lobster', cursive;
+    --contentFont: 'Koulen', cursive;
 }
 *{
     margin: 0px;
@@ -18,7 +19,7 @@ body{
     position: absolute;
     left: 20px;
     top: 20px;
-    font-family: var(--customFont, sans-serif);
+    font-family: var(--logoFont, sans-serif);
     color: white;
     font-size: 50px;
     text-shadow: 0px 0px 15px white;
@@ -38,5 +39,39 @@ body{
     grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
 }
 
-.book1{
+.book{
+    overflow: hidden;
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background-color: black;
+    font-family: var(--contentFont, sans-serif);
+    font-size: 20px;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 0px 0px 10px white;
 }
+.yesButton, .noButton{
+    font-family: var(--contentFont, sans-serif);
+    border-radius: 10px;
+    width: 100px;
+    position: absolute;
+    bottom: 20px;
+    left: 114px;
+    padding: 10px;
+    border: 10px;
+    font-size: 20px;
+}
+.yesButton{
+    background-color: aquamarine;
+}
+.noButton{
+    background-color:brown;
+}
+.yesButton:active, .noButton:active{
+    padding: 8px 13px 6px;
+}
+
+
