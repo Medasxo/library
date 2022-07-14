@@ -67,6 +67,12 @@ function displayLibrary() {
             noButton.innerText = "Not Read";
             bookDiv.appendChild(noButton);
         }
+        deleteBook = document.createElement("button");
+        deleteBook.setAttribute("id", i);
+        deleteBook.classList.add("deleteBook");
+        deleteBook.innerText = "X";
+        deleteBook.setAttribute("onclick", "deleteBookById(this.id)");
+        bookDiv.appendChild(deleteBook);
 
         bookDiv.appendChild(br);
         const bookNumber = document.createElement("div");
@@ -88,6 +94,11 @@ function changeReadStatusToNo(id) {
 
 function changeReadStatusToYes(id) {
     myLibrary[id].read = "Yes";
+    displayLibrary();
+}
+
+function deleteBookById(id) {
+    myLibrary.splice(id, 1);
     displayLibrary();
 }
 
