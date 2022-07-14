@@ -10,12 +10,26 @@ function Book(title, author, pages, read) {
     }
 }
 
-function addBookToLibrary(title, author, pages, read) {
+function addBookToLibrary() {
+    const form = document.getElementById("form");
+    let title = form.elements['title'].value;
+    let author = form.elements['author'].value;
+    let pages = form.elements['pages'].value;
+    let read = form.elements['read'].value;
     myLibrary[myLibrary.length] = new Book(title, author, pages, read);
+    displayLibrary();
+    form.style.display = 'none';
+    
 }
 
 function displayLibrary(){
     const libraryContainer = document.querySelector(".container");
+    while(document.querySelector(".book") !== null){
+        
+        const deleteDiv = document.querySelector(".book");
+        libraryContainer.removeChild(deleteDiv)
+    }
+    console.log("a");
     const br = document.createElement("br");
     for(let i = 0; i < myLibrary.length; i++){
         const bookDiv = document.createElement("div");
@@ -40,7 +54,17 @@ function displayLibrary(){
     }
 }
 
-addBookToLibrary("Harry Potter", "JK. Rowling", 290, "Yes");
-addBookToLibrary("Harry Pot", "JK", 292, "No");
 
-displayLibrary();
+
+
+
+const btn = document.getElementById('newBook');
+btn.addEventListener('click', () =>{
+    const form = document.getElementById('form');
+    if(form.style.display === 'none'){
+        form.style.display = 'block';
+    }
+    else{
+        form.style.display = 'none';
+    }
+})
